@@ -1,0 +1,28 @@
+@mixin avatar($size, $font)
+    width: $size
+    height: $size
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    & > .initials
+        font-size: $font
+        line-height: 1
+        color: white
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+        font-weight: 600
+
+.avatari--mini
+    @include avatar(px(40), px(16))
+.avatari--tiny
+    @include avatar(px(50), px(16))
+.avatari--small
+    @include avatar(px(75), px(24))
+.avatari--medium
+    @include avatar(px(100), px(32))
+.avatari--big
+    @include avatar(px(350), px(74))
+.avatari--raw
+    @include avatar(px(800), px(160))
