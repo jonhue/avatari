@@ -60,7 +60,7 @@ To render Avatari avatars, you have to require the necessary assets to be added 
  */
 ```
 
-**Note:** You can override the [styles](vendor/assets/stylesheets/avitari.sass) when you are looking for a custom integration.
+**Note:** You can override the [styles](vendor/assets/stylesheets/avatari.sass) when you are looking for a custom integration.
 
 ### CarrierWave
 
