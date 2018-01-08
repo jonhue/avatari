@@ -1,11 +1,14 @@
 module Avatari
     module AvatarHelper
 
-        def avatari object, version = :medium
+        def avatari object, version = nil
+            version ||= object.class.avatari_instance.default_version || ::Avatari.configuration.default_version
+            version.to_s
+
             if object.avatar?
-                image_tag object.avatar.url, class: 'avatari avatari--' + version.to_s
-            elsif !object.class.avatari_initials.nil?
-                render partial: 'avatari/avatar', locals: { object: object, version: version.to_s }
+                image_tag object.avatar.url, class: 'avatari avatari--' + version
+            elsif !object.class.avatari_instance.initials_method.nil?
+                render partial: 'avatari/avatar', locals: { object: object, version: version }
             else
                 false
             end

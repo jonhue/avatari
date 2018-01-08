@@ -5,28 +5,19 @@ module Avatari
 
         def avatari_color
             if defined?(self.avatar_color)
-                self.update_attributes(avatar_color: self.class.avatari_colors.sample) if self.avatar_color.nil?
+                self.update_attributes(avatar_color: self.class.avatari_instance.colors.sample) if self.avatar_color.nil?
                 self.avatar_color
             else
-                self.class.avatari_colors.sample
+                self.class.avatari_instance.colors.sample
             end
         end
 
         module ClassMethods
 
-            attr_accessor :avatari_colors
-            attr_accessor :avatari_initials
+            attr_accessor :avatari_instance
 
-            def avatari initials = nil, options = {}
-                defaults = {
-                    colors: nil
-                }
-                defaults.merge! options
-
-                self.avatari_colors = options[:colors] || ['#000000']
-                self.avatari_initials = initials
-
-                serialize :avatar_color, Array
+            def avatari initials_method = nil, options = {}
+                self.avatari_instance = ::Avatari::Avatar.new initials_method, options
                 mount_uploader :avatar, ::Avatari::AvatarUploader
             end
 

@@ -1,3 +1,3 @@
 <div class="<%= 'avatari avatari--' + version %>" style="background: <%= object.avatari_color %>;">
-    <span class="initials"><%= object.send(object.class.avatari_initials) %></span>
+    <span class="initials"><%= object.send(object.class.avatari_instance.initials_method) %></span>
 </div>
