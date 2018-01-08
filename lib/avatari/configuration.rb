@@ -12,11 +12,13 @@ module Avatari
     class Configuration
 
         attr_accessor :default_version
+        attr_accessor :mini_magick
 
         def initialize
             @default_version = :medium
+            @mini_magick = true
         end
 
     end
-    
+
 end

@@ -13,14 +13,12 @@ module Avatari
         end
 
         module ClassMethods
-
             attr_accessor :avatari_instance
 
             def avatari initials_method = nil, options = {}
                 self.avatari_instance = ::Avatari::Avatar.new initials_method, options
                 mount_uploader :avatar, ::Avatari::AvatarUploader
             end
-
         end
 
     end

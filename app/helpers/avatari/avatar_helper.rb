@@ -7,7 +7,7 @@ module Avatari
 
             if object.avatar?
                 image_tag object.avatar.url, class: 'avatari avatari--' + version
-            elsif !object.class.avatari_instance.initials_method.nil?
+            elsif !object.class.avatari_instance.initials(object).nil?
                 render partial: 'avatari/avatar', locals: { object: object, version: version }
             else
                 false
