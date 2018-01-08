@@ -21,7 +21,7 @@ module Avatari
                 },
                 default_version: nil,
                 process: [800,800],
-                extension_whitelist: ['jpg', 'jpeg', 'png']
+                extension_whitelist: ['jpg','jpeg','png']
             }
             defaults.merge! options
 

@@ -3,7 +3,7 @@ module Avatari
 
         def avatari object, version = nil
             version ||= object.class.avatari_instance.default_version || ::Avatari.configuration.default_version
-            version.to_s
+            version = version.to_s
 
             if object.avatar?
                 image_tag object.avatar.url, class: 'avatari avatari--' + version
