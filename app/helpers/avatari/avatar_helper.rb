@@ -1,11 +1,11 @@
 module Avatari
     module AvatarHelper
 
-        def avatari object, size = :medium
+        def avatari object, version = :medium
             if object.avatar?
-                image_tag object.avatar.url, class: 'avatari ' + (size ? 'avatari--' + size.to_s : '')
+                image_tag object.avatar.url, class: 'avatari avatari--' + version.to_s
             elsif !object.class.avatari_initials.nil?
-                render partial: 'avatari/avatar', object: object, size: size.to_s
+                render partial: 'avatari/avatar', object: object, version: version.to_s
             else
                 false
             end
