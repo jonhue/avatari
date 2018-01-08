@@ -13,10 +13,12 @@ module Avatari
 
         attr_accessor :default_version
         attr_accessor :mini_magick
+        attr_accessor :storage
 
         def initialize
             @default_version = :medium
             @mini_magick = true
+            @storage = :fog
         end
 
     end

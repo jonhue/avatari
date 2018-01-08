@@ -1,8 +1,8 @@
 class Avatari::AvatarUploader < CarrierWave::Uploader::Base
 
-    include CarrierWave::MiniMagick if ::Avatari.configuration.mini_magick
+    include CarrierWave::MiniMagick if ::Avatari.configuration&.mini_magick
 
-    storage model.class.avatari_instance.storage.to_sym
+    storage ::Avatari.configuration&.storage || :fog
 
     def store_dir
         "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"

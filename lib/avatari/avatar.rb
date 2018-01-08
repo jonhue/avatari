@@ -7,7 +7,6 @@ module Avatari
         attr_accessor :default_version
         attr_accessor :process
         attr_accessor :extension_whitelist
-        attr_accessor :storage
 
         def initialize initials_method = nil, options = {}
             defaults = {
@@ -22,8 +21,7 @@ module Avatari
                 },
                 default_version: nil,
                 process: [800,800],
-                extension_whitelist: ['jpg', 'jpeg', 'png'],
-                storage: :fog
+                extension_whitelist: ['jpg', 'jpeg', 'png']
             }
             defaults.merge! options
 
@@ -33,7 +31,6 @@ module Avatari
             @default_version = options[:default_version]
             @process = options[:process]
             @extension_whitelist = options[:extension_whitelist]
-            @storage = options[:storage]
         end
 
         def initials object
