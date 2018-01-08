@@ -1,3 +1,3 @@
-<div class="<%= 'avatari avatari--' + version %>" style="background: <%= object.avatari_color %>;">
-    <span class="initials"><%= object.class.avatari_instance.initials(object) %></span>
+<div class="<%= 'avatari avatari--' + version %>" style="width: <%= object.class.avatari_instance.versions[version.to_sym].first %>; height: <%= object.class.avatari_instance.versions[version.to_sym].last %>; background: <%= object.avatari_color %>;">
+    <span class="initials" style="font-size: <%= object.class.avatari_instance.versions[version.to_sym].first / 50 %>rem;"><%= object.class.avatari_instance.initials(object) %></span>
 </div>

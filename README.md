@@ -14,6 +14,7 @@ Avatari extends [CarrierWave](https://github.com/carrierwaveuploader/carrierwave
     * [CarrierWave](#carrierwave)
     * [Models](#models)
     * [Views](#views)
+* [Configuration](#configuration)
 * [To Do](#to-do)
 * [Contributing](#contributing)
     * [Contributors](#contributors)
@@ -44,6 +45,10 @@ If you always want to be up to date fetch the latest from GitHub in your `Gemfil
 gem 'avatari', github: 'jonhue/avatari'
 ```
 
+Now run the generator:
+
+    $ rails g avatari
+
 ## Usage
 
 ### Assets
@@ -68,9 +73,9 @@ To backup CarrierWave add an `avatar` column (`string`) to every ActiveRecord mo
 
 The `avatar` attribute can be used like any other CarrierWave instance.
 
-Avatari makes some assumptions about your CarrierWave integration. For Avatari to work properly, [Fog](https://github.com/carrierwaveuploader/carrierwave#fog) and [MiniMagick](https://github.com/minimagick/minimagick) have to be set up.
+Avatari makes some assumptions about your CarrierWave integration. For Avatari to work properly after installation, [Fog](https://github.com/carrierwaveuploader/carrierwave#fog) and [MiniMagick](https://github.com/minimagick/minimagick) have to be set up. However they can be unrequired when [configuring](#configuration) Avatari.
 
-Avatari preprocesses uploaded avatars:
+Avatari preprocesses uploaded avatars by default:
 
 * `raw` (800x800)
 * `big` (350x350)
@@ -78,8 +83,6 @@ Avatari preprocesses uploaded avatars:
 * `small` (75x75)
 * `tiny` (50x50)
 * `mini` (40x40)
-
-It accepts images in `jpg`, `jpeg` and `png` format.
 
 ### Models
 
@@ -98,9 +101,20 @@ class User < ApplicationRecord
     avatari :initials
 
     def initials
-        self.first_name[0] + self.last_name[0]
+        [self.first_name, self.last_name].join(' ')
     end
 end
+```
+
+By default Avatari manipulates the passed initials: only the first characters of the first two word will be used as initials:
+
+```
+'Jonas Hübotter'
+=> 'JH'
+'jonas hübotter'
+=> 'JH'
+'jonas hübotter and someone else'
+=> 'JH'
 ```
 
 **Note:** When [rendering](#views) an avatar and you did not provide the `initials` option + no avatar has been uploaded yet, the helper method will return `false`.
@@ -117,6 +131,21 @@ For every instance of the class, Avatari will pick a sample of the array of prov
 
 To attach a picked color to a given record permanently, you will also have to add an `avatar_color` string column to your database tables.
 
+There is a variety of other options you can pass to further configure Avatari. Here are the defaults:
+
+```ruby
+class User < ApplicationRecord
+    avatari colors: ['#000000'], versions: {
+        mini: [40,40],
+        tiny: [50,50],
+        small: [75,75],
+        medium: [100,100],
+        big: [350,350],
+        raw: [800,800]
+    }, default_version: nil, process: [800,800], extension_whitelist: ['jpg','jpeg','png']
+end
+```
+
 ### Views
 
 To render an avatar in your view, utilize the `avatari` helper method:
@@ -131,7 +160,23 @@ You can also specify a size:
 = avatari current_user, :tiny
 ```
 
-The `size` of the rendered avatar defaults to `:medium`.
+---
+
+## Configuration
+
+You can configure Avatari by passing a block to `configure`. This can be done in `config/initializers/avatari.rb`:
+
+```ruby
+Avatari.configure do |config|
+    config.default_version = :medium
+end
+```
+
+**`default_version`** Default version to be used when rendering avatars. Takes a symbol. Defaults to `:medium`.
+
+**`mini_magick`** Whether or not to include MiniMagick. Required for processing file versions. Takes a boolean. Defaults to `true`.
+
+**`storage`** Choose you default storage option for CarrierWave. Accepts `:file` or `:fog`. Defaults to `:fog`.
 
 ---
 

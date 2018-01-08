@@ -23,7 +23,7 @@ module Avatari
                 process: [800,800],
                 extension_whitelist: ['jpg','jpeg','png']
             }
-            defaults.merge! options
+            options = defaults.merge! options
 
             @initials_method = initials_method
             @colors = options[:colors]
