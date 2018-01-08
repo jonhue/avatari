@@ -115,7 +115,7 @@ end
 
 For every instance of the class, Avatari will pick a sample of the array of provided background colors. The default for every instance is `#000000`.
 
-To use placeholders, you will also have to add an `avatar_color` string column to your database tables.
+To attach a picked color to a given record permanently, you will also have to add an `avatar_color` string column to your database tables.
 
 ### Views
 

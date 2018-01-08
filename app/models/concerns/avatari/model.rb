@@ -8,7 +8,7 @@ module Avatari
                 self.update_attributes(avatar_color: self.class.avatari_colors.sample) if self.avatar_color.nil?
                 self.avatar_color
             else
-                self.avatari_colors.sample
+                self.class.avatari_colors.sample
             end
         end
 
