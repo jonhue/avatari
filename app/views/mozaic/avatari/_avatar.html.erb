@@ -1,0 +1,7 @@
+<% if options[:object].avatar? %>
+<%= image_tag options[:object].avatar.url, class: "avatari avatari--#{options[:version]}" %>
+<% elsif !options[:object].class.avatari_instance.initials(options[:object]).nil? %>
+<div class="<%= "avatari avatari--#{options[:version]}" %>" style="width: <%= options[:object].class.avatari_instance.versions[options[:version].to_sym].first / 16 %>rem; height: <%= options[:object].class.avatari_instance.versions[options[:version].to_sym].last / 16 %>rem; background: <%= options[:object].avatari_color %>;">
+    <span class="initials" style="font-size: <%= options[:object].class.avatari_instance.versions[options[:version].to_sym].first / 50 %>rem;"><%= options[:object].class.avatari_instance.initials(options[:object]) %></span>
+</div>
+<% end %>
