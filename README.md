@@ -10,7 +10,6 @@ Avatari extends [CarrierWave](https://github.com/carrierwaveuploader/carrierwave
 
 * [Installation](#installation)
 * [Usage](#usage)
-    * [Assets](#assets)
     * [CarrierWave](#carrierwave)
     * [Models](#models)
     * [Views](#views)
@@ -50,22 +49,6 @@ Now run the generator:
     $ rails g avatari
 
 ## Usage
-
-### Assets
-
-To render Avatari avatars, you have to require the necessary assets to be added to your asset pipeline:
-
-```js
-//= require avitari
-```
-
-```css
-/*
- *= require avitari.min
- */
-```
-
-**Note:** You can override the [styles](vendor/assets/stylesheets/avatari.sass) when you are looking for a custom integration.
 
 ### CarrierWave
 
