@@ -6,8 +6,6 @@ module Avatari
 
     autoload :Avatar, 'avatari/avatar'
 
-    autoload :Mozaic, 'avatari/mozaic'
-
     require 'avatari/engine'
     require 'avatari/railtie'
 
