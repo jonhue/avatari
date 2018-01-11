@@ -151,13 +151,13 @@ end
 To render an avatar in your view, utilize the `avatari` helper method:
 
 ```haml
-= avatari current_user
+= component 'avatari/avatar', object: current_user
 ```
 
 You can also specify a size:
 
 ```haml
-= avatari current_user, :tiny
+= component 'avatari/avatar', object: current_user, version: :tiny
 ```
 
 ---
