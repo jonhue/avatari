@@ -11,7 +11,7 @@ module Avatari
 
         initializer 'avatari.mozaic' do
             Mozaic.configure do |config|
-                config.define_component 'avatari/avatar' do
+                config.define_component 'avatari/avatar' do |options|
                     options[:version] ||= options[:object].class.avatari_instance.default_version || ::Avatari.configuration.default_version
                 end
             end
