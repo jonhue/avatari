@@ -153,6 +153,13 @@ You can also specify a size:
 = component 'avatari/avatar', object: current_user, version: :tiny
 ```
 
+You are able to check whether or not an avatar can be rendered:
+
+```haml
+- if avatari?
+    = component 'avatari/avatar', object: current_user
+```
+
 ---
 
 ## Configuration
