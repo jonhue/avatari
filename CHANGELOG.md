@@ -4,6 +4,11 @@
 
 * nothing yet
 
+### 2.0.1 - 2018/01/12
+
+* bugfixes
+    * fixed `avatari?` view helper
+
 ### 2.0.0 - 2018/01/12
 
 * features

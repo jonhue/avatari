@@ -156,7 +156,7 @@ You can also specify a size:
 You are able to check whether or not an avatar can be rendered:
 
 ```haml
-- if avatari?
+- if avatari? current_user
     = component 'avatari/avatar', object: current_user
 ```
 

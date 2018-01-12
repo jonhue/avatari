@@ -1,7 +1,7 @@
 module Avatari
     module AvatarHelper
 
-        def avatari?
+        def avatari? object
             object.avatar? || !object.class.avatari_instance.initials(object).nil?
         end
 
