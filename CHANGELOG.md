@@ -4,6 +4,11 @@
 
 * nothing yet
 
+### 2.0.0 - 2018/01/12
+
+* features
+    * add Mozaic gem
+
 ### 1.1.0 - 2018/01/08
 
 * features

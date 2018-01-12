@@ -48,6 +48,16 @@ Now run the generator:
 
     $ rails g avatari
 
+Add the stylesheet to the asset pipeline:
+
+```
+/*
+ *= require avatari
+ */
+```
+
+---
+
 ## Usage
 
 ### CarrierWave
