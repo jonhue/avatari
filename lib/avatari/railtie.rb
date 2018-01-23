@@ -1,4 +1,7 @@
 require 'rails/railtie'
+require 'active_support'
+require 'active_record'
+require 'mozaic'
 
 module Avatari
     class Railtie < Rails::Railtie
