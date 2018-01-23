@@ -107,7 +107,7 @@ class User < ApplicationRecord
 end
 ```
 
-By default Avatari manipulates the passed initials: only the first characters of the first two word will be used as initials:
+By default Avatari manipulates the passed initials: only the first characters of the first two words will be used as initials:
 
 ```
 'Jonas Hübotter'
