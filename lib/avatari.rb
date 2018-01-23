@@ -1,3 +1,4 @@
+require 'carrierwave'
 require 'avatari/version'
 
 module Avatari
