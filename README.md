@@ -56,6 +56,14 @@ Add the stylesheet to the asset pipeline:
  */
 ```
 
+Lastly, add Avatari to an ActiveRecord model:
+
+```ruby
+class User < ApplicationRecord
+    avatari
+end
+```
+
 ---
 
 ## Usage
