@@ -1,0 +1,10 @@
+{
+  "name": "avatari",
+  "version": "2.0.2",
+  "description": "Add avatars to ActiveRecord models",
+  "main": "vendor/assets/stylesheets/avatari.sass",
+  "repository": "https://github.com/jonhue/avatari",
+  "author": "Jonas Hübotter <me@jonhue.me>",
+  "license": "MIT",
+  "private": false
+}

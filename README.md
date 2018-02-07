@@ -56,6 +56,8 @@ Add the stylesheet to the asset pipeline:
  */
 ```
 
+**Note:** If you are using Webpack instead of Sprockets, import from the avatari NPM package.
+
 Lastly, add Avatari to an ActiveRecord model:
 
 ```ruby
